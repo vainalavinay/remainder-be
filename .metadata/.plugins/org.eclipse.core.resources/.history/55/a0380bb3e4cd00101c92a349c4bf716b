@@ -1,0 +1,52 @@
+package com.project.remainder.entity;
+
+import java.time.LocalDate;
+
+public class RemainderData
+{
+	private Integer id;
+	private String name;
+	private String toEmail;
+	private String subject;
+	private String message;
+	private LocalDate date;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getToEmail() {
+		return toEmail;
+	}
+	public void setToEmail(String toEmail) {
+		this.toEmail = toEmail;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	
+	
+	
+}

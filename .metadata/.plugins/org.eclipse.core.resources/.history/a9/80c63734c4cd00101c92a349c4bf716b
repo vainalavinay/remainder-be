@@ -1,0 +1,14 @@
+package com.project.remainder.scheduler;
+
+import java.time.LocalDateTime;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class DynamicTaskScheduler 
+{
+	public void scheduleEmail(String toEmail, String subject, String message, LocalDateTime time)
+	{
+		
+	}
+}

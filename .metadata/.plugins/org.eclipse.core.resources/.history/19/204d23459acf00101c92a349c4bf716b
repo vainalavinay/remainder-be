@@ -1,0 +1,30 @@
+package com.project.remainder.scheduler;
+
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.support.CronTrigger;
+import org.springframework.stereotype.Service;
+
+import com.project.remainder.EmailService;
+
+@Service
+public class DynamicTaskScheduler 
+{
+	@Autowired
+	private EmailService emailService;
+	
+	@Autowired
+	private TaskScheduler taskScheduler;
+	
+	public void scheduleEmail(String toEmail, String subject, String message, LocalDateTime time)
+	{
+		String cronString = "* 1 * * * ?";
+//		Instant triggerTime = time.atZone(ZoneId.systemDefault()).toInstant();
+		taskScheduler.schedule(()->emailService.sendEmail(toEmail, subject, message), new CronTrigger(cronString));
+	}
+} 

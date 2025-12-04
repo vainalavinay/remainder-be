@@ -1,0 +1,16 @@
+spring.application.name=demo
+
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=vainalavinayvvk098@gmail.com
+spring.mail.password=iqxkxlmtrmiylgie
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+spring.h2.console.enabled=true
+spring.h2.console=/h2-console
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spirng.datasource.password=
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.jpa.show-sql=true

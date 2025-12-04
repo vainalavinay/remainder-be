@@ -1,0 +1,6 @@
+package com.project.remainder.entity;
+
+public class User
+{
+
+}

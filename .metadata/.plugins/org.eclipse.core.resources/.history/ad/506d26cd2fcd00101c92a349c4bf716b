@@ -1,0 +1,5 @@
+package com.project.remainder.controller;
+
+public class EmailController {
+
+}

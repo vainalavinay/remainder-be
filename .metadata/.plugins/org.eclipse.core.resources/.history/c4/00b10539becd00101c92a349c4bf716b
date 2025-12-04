@@ -1,0 +1,28 @@
+package com.project.remainder.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.remainder.EmailService;
+
+@RestController
+public class EmailController 
+{
+	
+	@Autowired
+	private EmailService emailService;
+	
+	@Value("${spring.mail.username}")
+	private String toEmail;
+
+	@Scheduled(cron = "0 57 12 * * ?")
+	@GetMapping("/sendEmail")
+	public String sendEmail()
+	{
+		emailService.sendEmail(toEmail, "Subject field", "This is message");
+		return "Email Sent Successfully";
+	}
+}

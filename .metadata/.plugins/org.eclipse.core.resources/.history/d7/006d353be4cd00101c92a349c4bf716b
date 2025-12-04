@@ -1,0 +1,14 @@
+package com.project.remainder.entity;
+
+import java.time.LocalDate;
+
+public class RemainderData
+{
+	private Integer id;
+	private String name;
+	private String toEmail;
+	private String subject;
+	private String message;
+	private LocalDate date;
+	
+}

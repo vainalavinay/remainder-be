@@ -1,0 +1,39 @@
+package com.project.remainder.controller;
+
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.remainder.entity.RemainderData;
+import com.project.remainder.repository.RemainderRepository;
+import com.project.remainder.scheduler.DynamicTaskScheduler;
+
+@RestController
+public class EmailController 
+{
+	
+	@Autowired
+	private DynamicTaskScheduler dynamicTaskScheduler;
+	
+	@Autowired
+	private RemainderRepository remainderRepository;
+	
+//	@Value("${spring.mail.username}")
+//	private String toEmail;
+	
+	@PostMapping("/sendTask")
+	public String taskScheduler(@RequestBody RemainderData data)
+	{
+		remainderRepository.save(data);
+		String toEmail = data.getToEmail();
+		String subject = data.getSubject();
+		String body = data.getMessage();
+		LocalDateTime dt = data.getDateTime();
+		dynamicTaskScheduler.scheduleEmail(toEmail , subject, body, dt);
+		return "Task Scheduled";
+	}
+}

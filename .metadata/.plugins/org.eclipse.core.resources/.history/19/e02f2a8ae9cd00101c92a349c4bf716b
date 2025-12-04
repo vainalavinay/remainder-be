@@ -1,0 +1,5 @@
+package com.project.remainder.repository;
+
+public interface RemainderRepository {
+
+}
