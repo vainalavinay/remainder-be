@@ -26,12 +26,12 @@ public class DynamicTaskScheduler
 
 	private String convertToCron(LocalDateTime time) 
 	{
-//		int sec = time.getSecond(); 
+		int sec = time.getSecond();
 		int min = time.getMinute();
 		int hour = time.getHour();
 		int day = time.getDayOfMonth();
-//		int month = time.getMonthValue(); 
-		return String.format("10 %d %d %d * ?", min, hour, day);
+		int month = time.getMonthValue();
+		return String.format("%d %d %d %d ?",sec, min, hour, day, month);
 	}
 } 
  
