@@ -22,7 +22,7 @@ public class DynamicTaskScheduler
 	{
 		String cronString = convertToCron(time);
 		taskScheduler.schedule(()->emailService.sendEmail(toEmail, subject, message), new CronTrigger(cronString));
-		System.out.println("Email Service Schedule line executed");
+		
 	}
 
 	private String convertToCron(LocalDateTime time) 
