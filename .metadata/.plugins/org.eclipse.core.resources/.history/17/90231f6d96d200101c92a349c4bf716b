@@ -20,18 +20,8 @@ public class DynamicTaskScheduler
 	
 	public void scheduleEmail(String toEmail, String subject, String message, LocalDateTime time)
 	{
-		String cronString = convertToCron(time);
+		String cronString = "10 0/5 * * * *";
 		taskScheduler.schedule(()->emailService.sendEmail(toEmail, subject, message), new CronTrigger(cronString));
-	}
-
-	private String convertToCron(LocalDateTime time) 
-	{
-		int sec = time.getSecond();
-		int min = time.getMinute();
-		int hour = time.getHour();
-		int day = time.getDayOfMonth();
-		int month = time.getMonthValue();
-		return String.format("%d %d %d %d ?",sec, min, hour, day, month);
 	}
 } 
  
