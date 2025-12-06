@@ -30,7 +30,7 @@ public class EmailController
 	}
 
 	
-	@CrossOrigin(origins = "https://remainder-fe.onrender.com/")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/scheduleTask")
 	public String taskScheduler(@RequestBody RemainderData data)
 	{
