@@ -15,7 +15,6 @@ import com.project.remainder.repository.RemainderRepository;
 import com.project.remainder.scheduler.DynamicTaskScheduler;
 
 @CrossOrigin(origins = "https://remainder-fe.onrender.com")
-//	@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class EmailController 
 {
@@ -33,6 +32,7 @@ public class EmailController
 	}
 
 	
+//	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/scheduleTask")
 	public String taskScheduler(@RequestBody RemainderData data)
 	{

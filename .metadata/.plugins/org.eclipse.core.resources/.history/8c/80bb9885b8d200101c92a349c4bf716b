@@ -14,8 +14,6 @@ import com.project.remainder.entity.RemainderData;
 import com.project.remainder.repository.RemainderRepository;
 import com.project.remainder.scheduler.DynamicTaskScheduler;
 
-@CrossOrigin(origins = "https://remainder-fe.onrender.com")
-//	@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class EmailController 
 {
@@ -33,6 +31,8 @@ public class EmailController
 	}
 
 	
+//	@CrossOrigin(origins = "https://remainder-fe.onrender.com")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/scheduleTask")
 	public String taskScheduler(@RequestBody RemainderData data)
 	{
@@ -40,10 +40,8 @@ public class EmailController
 		String toEmail = data.getToEmail();
 		String subject = data.getSubject();
 		String body = data.getMessage();
-//		String timeSubString = "data.getDateTime().toString().substring(0,16)";
-//		LocalDateTime dt = LocalDateTime.parse(timeSubString);
-		LocalDateTime dt = data.getDateTime();
-		System.out.println(dt);
+		String timeSubString = "data.getDateTime().toString().substring(0,16)";
+		LocalDateTime dt = LocalDateTime.parse(timeSubString);
 		dynamicTaskScheduler.scheduleEmail(toEmail , subject, body, dt);
 		return "Task Scheduled for the email: "+ toEmail;
 	}
