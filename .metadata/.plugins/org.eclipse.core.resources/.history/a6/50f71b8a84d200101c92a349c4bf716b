@@ -26,7 +26,7 @@ public class EmailController
 	@GetMapping("/")
 	public String homePage()
 	{
-		return "Hello world";
+		return "Hello";
 	}
 
 	
